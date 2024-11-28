@@ -7,16 +7,16 @@ let UserModel = require("./models/user")
 
 
 app.get('/', (req, res) => {
-    res.send("Helllow")
+  res.send("Helllow")
 });
 app.post('/create', async (req, res) => {
-  let {name,messege,email} = req.body;
-    let userCreated = await UserModel.create({
-        name,
-        email,
-        messege,
-    })
-    res.json(userCreated);
+  let { name, messege, email } = req.body;
+  let userCreated = await UserModel.create({
+    name,
+    email,
+    messege,
+  })
+  res.json(userCreated);
 });
 app.get('/read', async (req, res) => {
   let messege = await UserModel.find();
@@ -24,8 +24,12 @@ app.get('/read', async (req, res) => {
     messege
   });
 });
+app.delete('/delete/:id', async (req, res) => {
+  let deleted = await UserModel.findOneAndDelete({_id:req.params.id});
+  res.redirect("/messeges");
+});
 
 app.listen(3000, () => {
-    console.log("Server Start");
+  console.log("Server Start");
 
 })
