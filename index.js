@@ -19,9 +19,9 @@ app.post('/create', async (req, res) => {
     res.json(userCreated);
 });
 app.get('/read', async (req, res) => {
-  let users = await UserModel.find();
+  let messege = await UserModel.find();
   res.json({
-    users
+    messege
   });
 });
 
