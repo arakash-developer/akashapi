@@ -26,7 +26,8 @@ app.get('/read', async (req, res) => {
 });
 app.delete('/delete/:id', async (req, res) => {
   let deleted = await UserModel.findOneAndDelete({_id:req.params.id});
-  res.redirect("/messeges");
+  // res.redirect("/messeges");
+  res.json(deleted);
 });
 
 app.listen(3000, () => {
