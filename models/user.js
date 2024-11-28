@@ -4,7 +4,7 @@ mongoose.connect("mongodb+srv://arakashdeveloper:LlmmKsEH1MNpF2R8@akash.f7phc.mo
 let userSchema = mongoose.Schema ({
     name:String,
     email:String,
-    image:String
+    messege:String
 })
 
-module.exports = mongoose.model('user',userSchema)
+module.exports = mongoose.model('messeges',userSchema)

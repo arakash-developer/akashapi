@@ -10,10 +10,11 @@ app.get('/', (req, res) => {
     res.send("Helllow")
 });
 app.post('/create', async (req, res) => {
+  let {name,messege,email} = req.body;
     let userCreated = await UserModel.create({
-        name:req.body.name,
-        email: "akash@gmail.com100",
-        image: "akash"
+        name,
+        email,
+        messege,
     })
     res.json(userCreated);
 });
